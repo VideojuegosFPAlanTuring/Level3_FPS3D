@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -26,8 +27,19 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float maxLookUpAngle = 80f;
     [SerializeField] private float maxLookDownAngle = 50f;
 
+
+    [Header("Stamina Bar")]
+    [SerializeField] private float maxStamina = 100f;
+    [SerializeField] private float staminaDrainRate = 10f;
+    [SerializeField] private float staminaRegenRate = 5f;
+    private float currentStamina;
+
+    //Reference to the slider
+    [SerializeField] private Slider staminaBar;
+
     //Is Sprinting state
     private bool isSprinting;
+    private bool isMoving;
 
 
     private void Start()
@@ -38,18 +50,29 @@ public class PlayerMovement : MonoBehaviour
 
         //Hide mouse coursor
         Cursor.lockState = CursorLockMode.Locked;
+
+        //Initialize StaminaBar to Max
+        currentStamina = maxStamina;
+        if (staminaBar != null )
+        {
+            staminaBar.maxValue = maxStamina;
+            staminaBar.value = currentStamina;
+        }
+
     }
 
     private void Update()
     {
         MovePlayer();
         LookAround();
+        HandleStamina();
     }
 
     #region INPUT SYSTEM
     public void Move(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+        isMoving = moveInput != Vector2.zero;
     }
 
     public void Look(InputAction.CallbackContext context)
@@ -126,5 +149,34 @@ public class PlayerMovement : MonoBehaviour
         cameraTransform.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
 
     }
+
+    /// <summary>
+    /// Handle Stamina Bar
+    /// </summary>
+    private void HandleStamina()
+    {
+        //Using Stamina
+        if (isSprinting && isMoving && currentStamina > 0)
+        {
+            currentStamina -= staminaDrainRate * Time.deltaTime;
+
+            //if totally used
+            if (currentStamina <=0)
+            {
+                currentStamina = 0;
+                isSprinting = false;
+            }
+        }
+        //Regenerate Stamins
+        else if (!isSprinting && currentStamina < maxStamina)
+        {
+            currentStamina += staminaRegenRate * Time.deltaTime;
+            currentStamina = Mathf.Min(currentStamina, maxStamina);
+        }
+
+        //Update Stamina bar
+        staminaBar.value = currentStamina;
+    }
+
 
 }
