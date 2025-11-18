@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     //Components
     private CharacterController characterController;
     private Transform cameraTransform;
+    private WeaponController weaponController;
 
     [Header("Player Move Setting")]
     [SerializeField] private float speed = 5f;
@@ -33,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         cameraTransform = Camera.main.transform;
+        weaponController = GetComponent<WeaponController>();
 
         //Hide mouse coursor
         Cursor.lockState = CursorLockMode.Locked;
@@ -44,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         LookAround();
     }
 
-    //--------- INPUT SYSTEM -----------
+    #region INPUT SYSTEM
     public void Move(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
@@ -71,6 +73,13 @@ public class PlayerMovement : MonoBehaviour
         isSprinting = context.started || context.performed;
     }
 
+    
+    public void Shoot(InputAction.CallbackContext context)
+    {
+        if (weaponController.CanShoot()) weaponController.Shoot();
+    }
+
+    #endregion
 
     private void MovePlayer()
     {
