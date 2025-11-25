@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class BulletController : MonoBehaviour
 {
@@ -36,7 +37,11 @@ public class BulletController : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             //Blood Particles Instantiate
-            Instantiate(damageParticle, transform.position, Quaternion.identity);
+            GameObject particles = Instantiate(damageParticle, transform.position, Quaternion.identity);
+
+            //Destroy particles after 2 seconds
+            Destroy(particles, 2f);
+            
 
             //Enemy Damage
             other.GetComponent<EnemyController>().DamageEnemy(damage);
@@ -50,8 +55,13 @@ public class BulletController : MonoBehaviour
         else
         {
             //impact particles
-            Instantiate(impactParticle, transform.position, Quaternion.identity);  
+            GameObject particles = Instantiate(impactParticle, transform.position, Quaternion.identity);
+
+            //Destroy particles after 2 seconds
+            Destroy(particles, 2f);
 
         }
     }
+
+
 }
