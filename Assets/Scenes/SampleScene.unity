@@ -4052,6 +4052,7 @@ GameObject:
   - component: {fileID: 1252927901}
   - component: {fileID: 1252927905}
   - component: {fileID: 1252927906}
+  - component: {fileID: 1252927907}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4317,12 +4318,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponController
   barrel: {fileID: 302232904}
-  currentAmmo: 5
+  currentAmmo: 10
   maxAmmo: 10
   infiniteAmmo: 0
   bulletSpeed: 5
   shootRate: 0.25
   damage: 1
+--- !u!114 &1252927907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252927900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f17ea5934fae3149ac990edcfafa8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerContoller
+  maxLives: 5
 --- !u!1 &1282598619
 GameObject:
   m_ObjectHideFlags: 0

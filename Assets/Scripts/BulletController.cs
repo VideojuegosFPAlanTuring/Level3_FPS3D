@@ -47,10 +47,9 @@ public class BulletController : MonoBehaviour
             other.GetComponent<EnemyController>().DamageEnemy(damage);
 
         }else if (other.CompareTag("Player"))
-        {
-            //TODO Blood Planel corroutine player
-            
-            //TODO Reduce life to Player
+        {                        
+            //Reduce lives to Player
+            other.GetComponent<PlayerContoller>().DamagePlayer(damage);
         }
         else
         {
