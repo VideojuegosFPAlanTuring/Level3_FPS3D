@@ -14,6 +14,8 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private float shootRate;
     [SerializeField] private int damage;
 
+    public float ShootRate { get => shootRate; set => shootRate = value; }
+
     private ObjectPool objectPool;
     private float lastShootTime;
 

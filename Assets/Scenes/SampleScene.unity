@@ -1939,10 +1939,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1104531994}
-  - {fileID: 1423233093}
-  - {fileID: 1498747257}
-  - {fileID: 1968990666}
+  - {fileID: 768490086}
+  - {fileID: 1868721464}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &357476329
@@ -2581,12 +2579,16 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 347170120}
+    m_TransformParent: {fileID: 1868721464}
     m_Modifications:
     - target: {fileID: 961436692786920039, guid: 8447042dcf284bb40835be749bdf56a0, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2005778405167516587, guid: 8447042dcf284bb40835be749bdf56a0, type: 3}
+      propertyPath: enemyData
+      value: 
+      objectReference: {fileID: 11400000, guid: 8b0b838eadd1ab5429c449a756ee83f3, type: 2}
     - target: {fileID: 2005778405167516587, guid: 8447042dcf284bb40835be749bdf56a0, type: 3}
       propertyPath: patrolPointsContainer
       value: 
@@ -3088,6 +3090,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &768490085
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 768490086}
+  m_Layer: 0
+  m_Name: GlodEnemies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &768490086
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768490085}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1498747257}
+  - {fileID: 1968990666}
+  m_Father: {fileID: 347170120}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &876086512
 GameObject:
   m_ObjectHideFlags: 0
@@ -4404,12 +4439,16 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 347170120}
+    m_TransformParent: {fileID: 768490086}
     m_Modifications:
     - target: {fileID: 961436692786920039, guid: 8447042dcf284bb40835be749bdf56a0, type: 3}
       propertyPath: m_Name
       value: Enemy (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2005778405167516587, guid: 8447042dcf284bb40835be749bdf56a0, type: 3}
+      propertyPath: enemyData
+      value: 
+      objectReference: {fileID: 11400000, guid: 1a3b8d186049d884a9dcfb5b061ed11b, type: 2}
     - target: {fileID: 2005778405167516587, guid: 8447042dcf284bb40835be749bdf56a0, type: 3}
       propertyPath: patrolPointsContainer
       value: 
@@ -5729,19 +5768,23 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 347170120}
+    m_TransformParent: {fileID: 768490086}
     m_Modifications:
     - target: {fileID: 961436692786920039, guid: 8447042dcf284bb40835be749bdf56a0, type: 3}
       propertyPath: m_Name
       value: Enemy (2)
       objectReference: {fileID: 0}
     - target: {fileID: 2005778405167516587, guid: 8447042dcf284bb40835be749bdf56a0, type: 3}
+      propertyPath: enemyData
+      value: 
+      objectReference: {fileID: 11400000, guid: 1a3b8d186049d884a9dcfb5b061ed11b, type: 2}
+    - target: {fileID: 2005778405167516587, guid: 8447042dcf284bb40835be749bdf56a0, type: 3}
       propertyPath: patrolPointsContainer
       value: 
       objectReference: {fileID: 436050856}
     - target: {fileID: 2572264080625028081, guid: 8447042dcf284bb40835be749bdf56a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.3
+      value: 6.299999
       objectReference: {fileID: 0}
     - target: {fileID: 2572264080625028081, guid: 8447042dcf284bb40835be749bdf56a0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5784,6 +5827,39 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8447042dcf284bb40835be749bdf56a0, type: 3}
+--- !u!1 &1868721463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1868721464}
+  m_Layer: 0
+  m_Name: RedEnemies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1868721464
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868721463}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1104531994}
+  - {fileID: 1423233093}
+  m_Father: {fileID: 347170120}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1968990666 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2572264080625028081, guid: 8447042dcf284bb40835be749bdf56a0, type: 3}
@@ -6282,12 +6358,16 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 347170120}
+    m_TransformParent: {fileID: 1868721464}
     m_Modifications:
     - target: {fileID: 961436692786920039, guid: 8447042dcf284bb40835be749bdf56a0, type: 3}
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2005778405167516587, guid: 8447042dcf284bb40835be749bdf56a0, type: 3}
+      propertyPath: enemyData
+      value: 
+      objectReference: {fileID: 11400000, guid: 8b0b838eadd1ab5429c449a756ee83f3, type: 2}
     - target: {fileID: 2005778405167516587, guid: 8447042dcf284bb40835be749bdf56a0, type: 3}
       propertyPath: patrolPointsContainer
       value: 

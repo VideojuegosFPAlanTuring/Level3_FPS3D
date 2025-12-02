@@ -6,8 +6,9 @@ public class EnemyController : MonoBehaviour
 {
 
     [Header("Enemy Data")]
-    [SerializeField] private int currentLife;    
-    [SerializeField] private int enemyScorePoint;
+    [SerializeField] EnemyData enemyData;
+    private int currentLife;    
+    private int enemyScorePoint;
 
     [Header("Patrol")]
     [SerializeField] private GameObject patrolPointsContainer;
@@ -23,11 +24,23 @@ public class EnemyController : MonoBehaviour
     //Player Target
     private Transform playerTransform;
 
+    private Renderer enemyRenderer;
+
+
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         weaponController = GetComponent<WeaponController>();
+        enemyRenderer = GetComponentInChildren<Renderer>();
+
+        //Initialize Enemy Data
+        currentLife = enemyData.MaxLives;
+        enemyScorePoint = enemyData.ScorePoints;
+        agent.speed = enemyData.Speed;
+        enemyRenderer.material = enemyData.EnemyMaterial;
+        weaponController.ShootRate = enemyData.ShootRate;
+
 
         //Take all the children of patrolPointContainer and add them to the patrolPoints List
         foreach (Transform child in patrolPointsContainer.transform)
