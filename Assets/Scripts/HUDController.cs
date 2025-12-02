@@ -38,7 +38,7 @@ public class HUDController : MonoBehaviour
         //Alpha variable reset to 1
         float alpha = 1.0f;
 
-        while (alpha < 0.0f)
+        while (alpha > 0.0f)
         {
             alpha -= (1.0f / damageTime) * Time.deltaTime;
             damageFlash.color = new Color(1.0f, 1.0f, 1.0f, alpha);
